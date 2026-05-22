@@ -1,0 +1,469 @@
+﻿@model IEnumerable<User>
+@{
+    ViewData["Title"] = "User List";
+}
+
+<style>
+    .user-list-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 2rem;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        min-height: 100vh;
+    }
+
+    .content-card {
+        background: rgba(255, 255, 255, 0.95);
+        border-radius: 20px;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        overflow: visible;
+        animation: fadeInUp 0.8s ease-out;
+    }
+
+    .header-section {
+        background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+        padding: 2rem;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+    }
+
+        .header-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            opacity: 0.5;
+        }
+
+    .page-title {
+        color: white;
+        font-size: 2.5rem;
+        font-weight: 700;
+        margin: 0;
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        position: relative;
+        z-index: 1;
+    }
+
+    .table-container {
+        padding: 2rem;
+        background: white;
+        overflow: visible;
+    }
+
+    /* Export button styling */
+    .export-section {
+        display: flex;
+        justify-content: flex-end;
+        margin-bottom: 1.5rem;
+    }
+
+    .export-btn {
+        background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+        border: none;
+        border-radius: 12px;
+        padding: 0.75rem 1.5rem;
+        font-weight: 600;
+        color: white;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 15px rgba(40, 167, 69, 0.3);
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        position: relative;
+        overflow: hidden;
+    }
+
+        .export-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.6s;
+        }
+
+        .export-btn:hover::before {
+            left: 100%;
+        }
+
+        .export-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(40, 167, 69, 0.4);
+            color: white;
+            text-decoration: none;
+        }
+
+        .export-btn:active {
+            transform: translateY(0);
+        }
+
+    .modern-table {
+        width: 100%;
+        border-collapse: separate;
+        border-spacing: 0;
+        background: white;
+        border-radius: 15px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        border: none;
+        overflow: visible;
+    }
+
+        .modern-table thead {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+            .modern-table thead th {
+                padding: 1.5rem 1.25rem;
+                font-weight: 600;
+                text-transform: uppercase;
+                letter-spacing: 0.5px;
+                font-size: 0.875rem;
+                color: black;
+                text-align: left;
+                border: none;
+                position: relative;
+            }
+
+                .modern-table thead th:first-child {
+                    border-top-left-radius: 15px;
+                }
+
+                .modern-table thead th:last-child {
+                    border-top-right-radius: 15px;
+                    text-align: center;
+                }
+
+        .modern-table tbody tr {
+            transition: all 0.3s ease;
+            border: none;
+            position: relative;
+        }
+
+            .modern-table tbody tr:hover {
+                background: linear-gradient(135deg, #f8f9ff 0%, #f0f4ff 100%);
+                box-shadow: 0 8px 25px rgba(102, 126, 234, 0.15);
+            }
+
+            .modern-table tbody tr:nth-child(even) {
+                background: rgba(102, 126, 234, 0.02);
+            }
+
+                .modern-table tbody tr:nth-child(even):hover {
+                    background: linear-gradient(135deg, #f8f9ff 0%, #f0f4ff 100%);
+                }
+
+        .modern-table tbody td {
+            padding: 1.25rem;
+            border: none;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            color: #2d3748;
+            font-weight: 500;
+            position: relative;
+            vertical-align: middle;
+        }
+
+        .modern-table tbody tr:last-child td {
+            border-bottom: none;
+        }
+
+            .modern-table tbody tr:last-child td:first-child {
+                border-bottom-left-radius: 15px;
+            }
+
+            .modern-table tbody tr:last-child td:last-child {
+                border-bottom-right-radius: 15px;
+            }
+
+        /* Column specific styling */
+        .modern-table tbody td:first-child {
+            font-weight: 600;
+            color: #4a5568;
+        }
+
+        .modern-table tbody td:nth-child(2) {
+            color: #667eea;
+            font-family: 'Monaco', 'Menlo', monospace;
+            font-size: 0.9rem;
+        }
+
+        .modern-table tbody td:nth-child(3) {
+            position: relative;
+        }
+
+            .modern-table tbody td:nth-child(3)::before {
+                content: '';
+                position: absolute;
+                left: 0;
+                top: 50%;
+                transform: translateY(-50%);
+                width: 4px;
+                height: 20px;
+                background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                border-radius: 2px;
+            }
+
+        /* Actions column styling */
+        .modern-table tbody td:last-child {
+            text-align: center;
+            padding: 1rem;
+            position: relative;
+        }
+
+    /* Dropdown container */
+    .dropdown {
+        position: static;
+        display: inline-block;
+    }
+
+    /* Modern dropdown button styling */
+    .modern-dropdown-btn {
+        background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        border: 2px solid transparent;
+        border-radius: 12px;
+        padding: 0.75rem;
+        font-size: 1.2rem;
+        font-weight: 600;
+        color: #495057;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        position: relative;
+        overflow: hidden;
+        cursor: pointer;
+        min-width: 44px;
+        min-height: 44px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+        .modern-dropdown-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+            transition: left 0.6s;
+        }
+
+        .modern-dropdown-btn:hover::before {
+            left: 100%;
+        }
+
+        .modern-dropdown-btn:hover {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3);
+            border-color: rgba(102, 126, 234, 0.3);
+        }
+
+        .modern-dropdown-btn:focus {
+            box-shadow: 0 0 0 0.2rem rgba(102, 126, 234, 0.25);
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            outline: none;
+        }
+
+        .modern-dropdown-btn:active {
+            transform: translateY(0);
+        }
+
+    /* Dropdown menu */
+    .dropdown-menu {
+        border: none !important;
+        border-radius: 12px !important;
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15) !important;
+        padding: 0.75rem 0 !important;
+        margin-top: 0.5rem !important;
+        background: white !important;
+        backdrop-filter: blur(10px);
+        min-width: 160px !important;
+        z-index: 1050 !important;
+        position: absolute !important;
+        animation: dropdownFade 0.2s ease-out;
+    }
+
+    .dropdown-item {
+        padding: 0.75rem 1.25rem !important;
+        font-weight: 500 !important;
+        transition: all 0.2s ease !important;
+        border-radius: 0 !important;
+        position: relative;
+        display: flex !important;
+        align-items: center;
+        gap: 0.5rem;
+        text-decoration: none !important;
+    }
+
+        .dropdown-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: transparent;
+            transition: all 0.2s ease;
+        }
+
+        .dropdown-item:hover {
+            background: linear-gradient(135deg, #f8f9ff 0%, #f0f4ff 100%) !important;
+            color: #667eea !important;
+            transform: translateX(8px);
+        }
+
+            .dropdown-item:hover::before {
+                background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            }
+
+        .dropdown-item.text-danger:hover {
+            background: linear-gradient(135deg, #fff5f5 0%, #fed7d7 100%) !important;
+            color: #e53e3e !important;
+        }
+
+            .dropdown-item.text-danger:hover::before {
+                background: linear-gradient(135deg, #f56565 0%, #e53e3e 100%);
+            }
+
+        /* Add icons to dropdown items */
+        .dropdown-item.text-danger::after {
+            content: '🗑️';
+            margin-left: auto;
+        }
+
+    @@keyframes dropdownFade {
+        from
+
+    {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    }
+
+    @@keyframes fadeInUp {
+        from
+
+    {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    }
+
+    /* Responsive design */
+    @@media (max-width: 768px) {
+        .user-list-container
+
+    {
+        padding: 1rem;
+    }
+
+    .page-title {
+        font-size: 2rem;
+    }
+
+    .table-container {
+        padding: 1rem;
+    }
+
+    .modern-table thead th,
+    .modern-table tbody td {
+        padding: 1rem 0.75rem;
+        font-size: 0.875rem;
+    }
+
+    .modern-dropdown-btn {
+        padding: 0.5rem;
+        min-width: 40px;
+        min-height: 40px;
+    }
+
+    .export-section {
+        justify-content: center;
+        margin-bottom: 1rem;
+    }
+
+    .export-btn {
+        padding: 0.6rem 1.2rem;
+        font-size: 0.875rem;
+    }
+
+    }
+</style>
+
+<div class="user-list-container">
+    <div class="content-card">
+        <div class="header-section">
+            <h2 class="page-title">User List</h2>
+        </div>
+
+        <div class="table-container">
+            <div class="export-section">
+                <a asp-action="ExportUsersToExcel" class="export-btn">
+                    <i class="bi bi-download"></i> Export to Excel
+                </a>
+            </div>
+
+            <table class="modern-table table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Role</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var user in Model)
+                    {
+                        <tr>
+                            <td>@user.Name</td>
+                            <td>@user.Email</td>
+                            <td>@user.Role</td>
+                            <td>
+                                <div class="dropdown">
+                                    <button class="btn modern-dropdown-btn" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        &#x22EE;
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        <li>
+                                            <form asp-action="Delete" asp-controller="Admin" method="post" class="d-inline-block w-100">
+                                                <input type="hidden" name="id" value="@user.Id" />
+                                                <button type="submit" class="dropdown-item modern-dropdown-item text-danger w-100 text-start border-0 bg-transparent">
+                                                    <i class="fas fa-trash-alt"></i>Delete
+                                                </button>
+                                            </form>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,395 @@
+﻿@model List<User>
+@{
+    ViewData["Title"] = "User List";
+}
+
+<style>
+    .user-list-container {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        min-height: 100vh;
+        padding: 2rem 0;
+    }
+
+    .content-wrapper {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 2rem;
+    }
+
+    .page-title {
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(15px);
+        color: #667eea;
+        font-weight: 700;
+        text-align: center;
+        margin-bottom: 3rem;
+        font-size: 2.5rem;
+        padding: 1.5rem;
+        border-radius: 2rem;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        position: relative;
+    }
+
+        .page-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            border-radius: 2px;
+        }
+
+    .users-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+        gap: 2rem;
+        margin-bottom: 2rem;
+    }
+
+    .user-details {
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(15px);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        border-radius: 2rem;
+        padding: 2rem;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        transition: all 0.4s ease;
+        position: relative;
+        overflow: hidden;
+    }
+
+        .user-details::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+        }
+
+        .user-details:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 30px 60px rgba(102, 126, 234, 0.25);
+            background: rgba(255, 255, 255, 1);
+        }
+
+        .user-details p {
+            margin-bottom: 1.2rem;
+            line-height: 1.6;
+            font-size: 1rem;
+            color: #495057;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.5rem;
+        }
+
+            .user-details p:last-child {
+                margin-bottom: 0;
+            }
+
+        .user-details strong {
+            color: #667eea;
+            font-weight: 600;
+            min-width: 120px;
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            position: relative;
+        }
+
+    .field-icon {
+        width: 20px;
+        height: 20px;
+        margin-right: 0.5rem;
+        color: #667eea;
+        flex-shrink: 0;
+    }
+
+    .field-content {
+        flex: 1;
+        font-weight: 500;
+    }
+
+    .user-name {
+        background: linear-gradient(45deg, #667eea, #764ba2);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        font-weight: 700;
+        font-size: 1.4rem;
+        margin-bottom: 1.5rem;
+        text-align: center;
+        position: relative;
+    }
+
+        .user-name::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 2px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            border-radius: 1px;
+        }
+
+    .email-field {
+        background: linear-gradient(45deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1));
+        padding: 0.75rem 1rem;
+        border-radius: 1rem;
+        border: 1px solid rgba(102, 126, 234, 0.2);
+        font-family: 'Courier New', monospace;
+    }
+
+    .skills-list ul {
+        background: rgba(40, 167, 69, 0.1);
+        border-radius: 1rem;
+        padding: 1rem;
+        margin: 0.5rem 0 0 0;
+        border: 1px solid rgba(40, 167, 69, 0.2);
+    }
+
+    .skills-list li {
+        color: #28a745;
+        font-weight: 500;
+        list-style: none;
+        position: relative;
+        padding-left: 1.5rem;
+    }
+
+        .skills-list li::before {
+            content: '⚡';
+            position: absolute;
+            left: 0;
+            color: #28a745;
+            font-size: 1.2rem;
+        }
+
+    .no-skills {
+        color: #6c757d;
+        font-style: italic;
+        background: rgba(108, 117, 125, 0.1);
+        padding: 0.5rem 1rem;
+        border-radius: 0.5rem;
+        border: 1px solid rgba(108, 117, 125, 0.2);
+    }
+
+    .experience-field {
+        background: linear-gradient(45deg, rgba(255, 193, 7, 0.1), rgba(255, 152, 0, 0.1));
+        padding: 0.75rem 1rem;
+        border-radius: 1rem;
+        border: 1px solid rgba(255, 193, 7, 0.3);
+        color: #e67e22;
+        font-weight: 500;
+    }
+
+    .job-role-field {
+        background: linear-gradient(45deg, rgba(220, 53, 69, 0.1), rgba(233, 30, 99, 0.1));
+        padding: 0.75rem 1rem;
+        border-radius: 1rem;
+        border: 1px solid rgba(220, 53, 69, 0.3);
+        color: #e74c3c;
+        font-weight: 600;
+        text-align: center;
+    }
+
+    .dob-field {
+        background: rgba(102, 126, 234, 0.05);
+        padding: 0.75rem 1rem;
+        border-radius: 1rem;
+        border: 1px solid rgba(102, 126, 234, 0.2);
+        font-family: 'Courier New', monospace;
+        color: #667eea;
+        font-weight: 500;
+    }
+
+    .stats-bar {
+        background: rgba(255, 255, 255, 0.9);
+        backdrop-filter: blur(10px);
+        padding: 1.5rem;
+        border-radius: 1.5rem;
+        text-align: center;
+        margin-bottom: 2rem;
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    .stats-text {
+        color: #667eea;
+        font-weight: 600;
+        font-size: 1.2rem;
+        margin: 0;
+    }
+
+    .empty-state {
+        text-align: center;
+        padding: 4rem 2rem;
+        background: rgba(255, 255, 255, 0.9);
+        backdrop-filter: blur(10px);
+        border-radius: 2rem;
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        color: #6c757d;
+    }
+
+        .empty-state i {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            color: #dee2e6;
+        }
+
+    @@media (max-width: 768px) {
+        .users-grid
+
+    {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .content-wrapper {
+        padding: 1rem;
+    }
+
+    .page-title {
+        font-size: 2rem;
+        padding: 1rem;
+    }
+
+    .user-details {
+        padding: 1.5rem;
+    }
+
+        .user-details strong {
+            min-width: 100px;
+            font-size: 0.9rem;
+        }
+
+    }
+
+    @@keyframes slideInUp {
+        from
+
+    {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    }
+
+    .user-details {
+        animation: slideInUp 0.6s ease forwards;
+    }
+
+        .user-details:nth-child(1) {
+            animation-delay: 0.1s;
+        }
+
+        .user-details:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .user-details:nth-child(3) {
+            animation-delay: 0.3s;
+        }
+
+        .user-details:nth-child(4) {
+            animation-delay: 0.4s;
+        }
+
+        .user-details:nth-child(5) {
+            animation-delay: 0.5s;
+        }
+
+        .user-details:nth-child(6) {
+            animation-delay: 0.6s;
+        }
+</style>
+
+<div class="user-list-container">
+    <div class="content-wrapper">
+
+        @if (Model != null && Model.Any())
+        {
+            <div class="users-grid">
+                @foreach (var user in Model)
+                {
+                    <div class="user-details">
+
+                        <p>
+                            <i class="fas fa-envelope field-icon" style="padding-top:15px"></i>
+                            <strong style="padding-top:10px">Name:</strong>
+                            <span class="field-content email-field">@user.Name</span>
+                        </p>
+                        <p>
+                            <i class="fas fa-envelope field-icon" style="padding-top:15px"></i> 
+                            <strong style="padding-top:10px">Email:</strong>
+                            <span class="field-content email-field">@user.Email</span>
+                        </p>
+
+                        <p>
+                            <i class="fas fa-align-left field-icon" style="padding-top:5px"></i>
+                            <strong>Description:</strong>
+                            <span class="field-content">@user.Description</span>
+                        </p>
+
+                        <p>
+                            <i class="fas fa-tools field-icon" style="padding-top:5px"></i>
+                            <strong>Skills:</strong>
+                            <span class="field-content skills-list">
+                                @if (user.Skills != null && user.Skills.Any())
+                                {
+                                    <ul>
+                                        <li>@user.Skills</li>
+                                    </ul>
+                                }
+                                else
+                                {
+                                    <span class="no-skills">No skills listed.</span>
+                                }
+                            </span>
+                        </p>
+
+                        <p>
+                            <i class="fas fa-briefcase field-icon" style="padding-top:15px"></i>
+                            <strong style="padding-top:10px">Experience:</strong>
+                            <span class="field-content experience-field">@user.Experience</span>
+                        </p>
+
+                        <p>
+                            <i class="fas fa-birthday-cake field-icon" style="padding-top:15px"></i>
+                            <strong style="padding-top:10px">Date of Birth:</strong>
+                            <span class="field-content dob-field">@user.DOB</span>
+                        </p>
+
+                        <p>
+                            <i class="fas fa-id-badge field-icon" style="padding-top:15px"></i>
+                            <strong style="padding-top:10px">Job Role:</strong>
+                            <span class="field-content job-role-field">@user.JobRole</span>
+                        </p>
+                    </div>
+                }
+            </div>
+        }
+        else
+        {
+            <div class="empty-state">
+                <i class="fas fa-user-slash"></i>
+                <h3>No Users Found</h3>
+                <p>There are currently no users in the system.</p>
+            </div>
+        }
+    </div>
+</div>
+
+<!-- Font Awesome for icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">

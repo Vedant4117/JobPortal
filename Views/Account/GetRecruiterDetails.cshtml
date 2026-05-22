@@ -1,0 +1,82 @@
+﻿@model User
+
+@{
+    ViewData["Title"] = "User Information Form";
+}
+
+<div class="container mt-4">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow">
+                <div class="card-header bg-primary text-white">
+                    <h3 class="mb-0">User Information Form</h3>
+                </div>
+                <div class="card-body">
+                    @using (Html.BeginForm("GetRecruiterDetails", "Account", FormMethod.Post))
+                    {
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger mb-3" })
+
+
+                        <div class="form-group mb-3">
+                            @Html.LabelFor(model => model.CName, htmlAttributes: new { @class = "form-label fw-bold" })
+                            @Html.TextBoxFor(model => model.CName, new { @class = "form-control", placeholder = "e.g., Google,Microsoft,Oracle..", maxlength = "200" })
+                            @Html.ValidationMessageFor(model => model.CName, "", new { @class = "text-danger" })
+                            <div class="form-text">List your Company Name</div>
+                        </div>
+
+                        <div class="form-group mb-3">
+                            @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "form-label fw-bold" })
+                            @Html.TextAreaFor(model => model.Description, new { @class = "form-control", rows = 4, placeholder = "Enter a brief description about your company...", maxlength = "500" })
+                            @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+                            <div class="form-text">Maximum 500 characters</div>
+                        </div>
+
+
+                        <div class="form-group mb-3">
+                            @Html.LabelFor(model => model.IType, htmlAttributes: new { @class = "form-label fw-bold" })
+                            @Html.TextBoxFor(model => model.IType, new { @class = "form-control", placeholder = "e.g, IT,Product,Mechanical, ....", maxlength = "100" })
+                            @Html.ValidationMessageFor(model => model.IType, "", new { @class = "text-danger" })
+                            <div class="form-text">Type of Industry</div>
+                        </div>
+
+
+                        <div class="form-group mb-3">
+                            @Html.LabelFor(model => model.Address, htmlAttributes: new { @class = "form-label fw-bold" })
+                            @Html.TextBoxFor(model => model.Address, new { @class = "form-control", placeholder = "Enter your company address" })
+                            @Html.ValidationMessageFor(model => model.Address, "", new { @class = "text-danger" })
+                            <div class="form-text">Enter your company address in correct form</div>
+                        </div>
+
+
+                        <div class="form-group mb-4">
+                            @Html.LabelFor(model => model.CSize, htmlAttributes: new { @class = "form-label fw-bold" })
+                            @Html.TextBoxFor(model => model.CSize, new { @class = "form-control", placeholder = "Enter size of company(e.g., Startup,MNC,etc)" })
+                            @Html.ValidationMessageFor(model => model.CSize, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="form-group mb-4">
+                            @Html.LabelFor(model => model.ContactNo, htmlAttributes: new { @class = "form-label fw-bold" })
+                            @Html.TextBoxFor(model => model.ContactNo, new { @class = "form-control", placeholder = "Phone number to contact you" })
+                            @Html.ValidationMessageFor(model => model.ContactNo, "", new { @class = "text-danger" })
+                        </div>
+
+
+                        <div class="form-group text-center">
+                            <button type="submit" class="btn btn-primary btn-lg px-5">
+                                <i class="fas fa-paper-plane me-2"></i>Submit Information
+                            </button>
+                            <button type="reset" class="btn btn-secondary btn-lg px-5 ms-3">
+                                <i class="fas fa-undo me-2"></i>Reset Form
+                            </button>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" />
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="{
+      @{
+          await Html.RenderPartialAsync("_ValidationScriptsPartial");
+      }

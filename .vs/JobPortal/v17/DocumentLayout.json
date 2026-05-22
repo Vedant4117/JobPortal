@@ -1,0 +1,476 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Administrator\\Downloads\\JobPortal_Vedant Choudhari_A\\JobPortal\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{951FB4FA-F4E0-41D5-B9EC-7BBF90C5372F}|JobPortal.csproj|c:\\users\\administrator\\downloads\\jobportal_vedant choudhari_a\\jobportal\\views\\jobseeker\\applicant_index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{951FB4FA-F4E0-41D5-B9EC-7BBF90C5372F}|JobPortal.csproj|solutionrelative:views\\jobseeker\\applicant_index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C7FAD68D-1158-ADB7-2BD8-65F68CB05868}|JobPortal_Database\\JobPortal_Database.csproj|c:\\users\\administrator\\downloads\\jobportal_vedant choudhari_a\\jobportal\\jobportal_database\\db\\jobs\\crud_jobs.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C7FAD68D-1158-ADB7-2BD8-65F68CB05868}|JobPortal_Database\\JobPortal_Database.csproj|solutionrelative:jobportal_database\\db\\jobs\\crud_jobs.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{951FB4FA-F4E0-41D5-B9EC-7BBF90C5372F}|JobPortal.csproj|c:\\users\\administrator\\downloads\\jobportal_vedant choudhari_a\\jobportal\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{951FB4FA-F4E0-41D5-B9EC-7BBF90C5372F}|JobPortal.csproj|solutionrelative:controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{951FB4FA-F4E0-41D5-B9EC-7BBF90C5372F}|JobPortal.csproj|c:\\users\\administrator\\downloads\\jobportal_vedant choudhari_a\\jobportal\\controllers\\employercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{951FB4FA-F4E0-41D5-B9EC-7BBF90C5372F}|JobPortal.csproj|solutionrelative:controllers\\employercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{951FB4FA-F4E0-41D5-B9EC-7BBF90C5372F}|JobPortal.csproj|c:\\users\\administrator\\downloads\\jobportal_vedant choudhari_a\\jobportal\\controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{951FB4FA-F4E0-41D5-B9EC-7BBF90C5372F}|JobPortal.csproj|solutionrelative:controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{951FB4FA-F4E0-41D5-B9EC-7BBF90C5372F}|JobPortal.csproj|c:\\users\\administrator\\downloads\\jobportal_vedant choudhari_a\\jobportal\\controllers\\jobseekercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{951FB4FA-F4E0-41D5-B9EC-7BBF90C5372F}|JobPortal.csproj|solutionrelative:controllers\\jobseekercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{951FB4FA-F4E0-41D5-B9EC-7BBF90C5372F}|JobPortal.csproj|c:\\users\\administrator\\downloads\\jobportal_vedant choudhari_a\\jobportal\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{951FB4FA-F4E0-41D5-B9EC-7BBF90C5372F}|JobPortal.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C7FAD68D-1158-ADB7-2BD8-65F68CB05868}|JobPortal_Database\\JobPortal_Database.csproj|c:\\users\\administrator\\downloads\\jobportal_vedant choudhari_a\\jobportal\\jobportal_database\\db\\users\\crud_users.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C7FAD68D-1158-ADB7-2BD8-65F68CB05868}|JobPortal_Database\\JobPortal_Database.csproj|solutionrelative:jobportal_database\\db\\users\\crud_users.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{262C6A48-AE34-D77E-44A9-AF0CD30983F0}|Models\\Models.csproj|c:\\users\\administrator\\downloads\\jobportal_vedant choudhari_a\\jobportal\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{262C6A48-AE34-D77E-44A9-AF0CD30983F0}|Models\\Models.csproj|solutionrelative:models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C7FAD68D-1158-ADB7-2BD8-65F68CB05868}|JobPortal_Database\\JobPortal_Database.csproj|c:\\users\\administrator\\downloads\\jobportal_vedant choudhari_a\\jobportal\\jobportal_database\\db\\application\\crud_application.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C7FAD68D-1158-ADB7-2BD8-65F68CB05868}|JobPortal_Database\\JobPortal_Database.csproj|solutionrelative:jobportal_database\\db\\application\\crud_application.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{951FB4FA-F4E0-41D5-B9EC-7BBF90C5372F}|JobPortal.csproj|c:\\users\\administrator\\downloads\\jobportal_vedant choudhari_a\\jobportal\\views\\employer\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{951FB4FA-F4E0-41D5-B9EC-7BBF90C5372F}|JobPortal.csproj|solutionrelative:views\\employer\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C7FAD68D-1158-ADB7-2BD8-65F68CB05868}|JobPortal_Database\\JobPortal_Database.csproj|c:\\users\\administrator\\downloads\\jobportal_vedant choudhari_a\\jobportal\\jobportal_database\\db\\connection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C7FAD68D-1158-ADB7-2BD8-65F68CB05868}|JobPortal_Database\\JobPortal_Database.csproj|solutionrelative:jobportal_database\\db\\connection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C7FAD68D-1158-ADB7-2BD8-65F68CB05868}|JobPortal_Database\\JobPortal_Database.csproj|c:\\users\\administrator\\downloads\\jobportal_vedant choudhari_a\\jobportal\\jobportal_database\\db\\businesslogic.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C7FAD68D-1158-ADB7-2BD8-65F68CB05868}|JobPortal_Database\\JobPortal_Database.csproj|solutionrelative:jobportal_database\\db\\businesslogic.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{262C6A48-AE34-D77E-44A9-AF0CD30983F0}|Models\\Models.csproj|c:\\users\\administrator\\downloads\\jobportal_vedant choudhari_a\\jobportal\\models\\application.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{262C6A48-AE34-D77E-44A9-AF0CD30983F0}|Models\\Models.csproj|solutionrelative:models\\application.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{262C6A48-AE34-D77E-44A9-AF0CD30983F0}|Models\\Models.csproj|c:\\users\\administrator\\downloads\\jobportal_vedant choudhari_a\\jobportal\\models\\jobs.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{262C6A48-AE34-D77E-44A9-AF0CD30983F0}|Models\\Models.csproj|solutionrelative:models\\jobs.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{951FB4FA-F4E0-41D5-B9EC-7BBF90C5372F}|JobPortal.csproj|c:\\users\\administrator\\downloads\\jobportal_vedant choudhari_a\\jobportal\\views\\employer\\update.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{951FB4FA-F4E0-41D5-B9EC-7BBF90C5372F}|JobPortal.csproj|solutionrelative:views\\employer\\update.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{951FB4FA-F4E0-41D5-B9EC-7BBF90C5372F}|JobPortal.csproj|c:\\users\\administrator\\downloads\\jobportal_vedant choudhari_a\\jobportal\\views\\account\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{951FB4FA-F4E0-41D5-B9EC-7BBF90C5372F}|JobPortal.csproj|solutionrelative:views\\account\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{951FB4FA-F4E0-41D5-B9EC-7BBF90C5372F}|JobPortal.csproj|c:\\users\\administrator\\downloads\\jobportal_vedant choudhari_a\\jobportal\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{951FB4FA-F4E0-41D5-B9EC-7BBF90C5372F}|JobPortal.csproj|solutionrelative:views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{951FB4FA-F4E0-41D5-B9EC-7BBF90C5372F}|JobPortal.csproj|c:\\users\\administrator\\downloads\\jobportal_vedant choudhari_a\\jobportal\\views\\employer\\recruiter_index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{951FB4FA-F4E0-41D5-B9EC-7BBF90C5372F}|JobPortal.csproj|solutionrelative:views\\employer\\recruiter_index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{951FB4FA-F4E0-41D5-B9EC-7BBF90C5372F}|JobPortal.csproj|c:\\users\\administrator\\downloads\\jobportal_vedant choudhari_a\\jobportal\\views\\employer\\applicantuserdetails.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{951FB4FA-F4E0-41D5-B9EC-7BBF90C5372F}|JobPortal.csproj|solutionrelative:views\\employer\\applicantuserdetails.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{951FB4FA-F4E0-41D5-B9EC-7BBF90C5372F}|JobPortal.csproj|c:\\users\\administrator\\downloads\\jobportal_vedant choudhari_a\\jobportal\\views\\account\\signup.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{951FB4FA-F4E0-41D5-B9EC-7BBF90C5372F}|JobPortal.csproj|solutionrelative:views\\account\\signup.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{951FB4FA-F4E0-41D5-B9EC-7BBF90C5372F}|JobPortal.csproj|c:\\users\\administrator\\downloads\\jobportal_vedant choudhari_a\\jobportal\\views\\account\\editprofilerecruiter.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{951FB4FA-F4E0-41D5-B9EC-7BBF90C5372F}|JobPortal.csproj|solutionrelative:views\\account\\editprofilerecruiter.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{951FB4FA-F4E0-41D5-B9EC-7BBF90C5372F}|JobPortal.csproj|c:\\users\\administrator\\downloads\\jobportal_vedant choudhari_a\\jobportal\\views\\jobseeker\\application_index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{951FB4FA-F4E0-41D5-B9EC-7BBF90C5372F}|JobPortal.csproj|solutionrelative:views\\jobseeker\\application_index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{951FB4FA-F4E0-41D5-B9EC-7BBF90C5372F}|JobPortal.csproj|c:\\users\\administrator\\downloads\\jobportal_vedant choudhari_a\\jobportal\\views\\account\\getrecruiterdetails.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{951FB4FA-F4E0-41D5-B9EC-7BBF90C5372F}|JobPortal.csproj|solutionrelative:views\\account\\getrecruiterdetails.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{951FB4FA-F4E0-41D5-B9EC-7BBF90C5372F}|JobPortal.csproj|c:\\users\\administrator\\downloads\\jobportal_vedant choudhari_a\\jobportal\\views\\employer\\applicants.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{951FB4FA-F4E0-41D5-B9EC-7BBF90C5372F}|JobPortal.csproj|solutionrelative:views\\employer\\applicants.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{951FB4FA-F4E0-41D5-B9EC-7BBF90C5372F}|JobPortal.csproj|c:\\users\\administrator\\downloads\\jobportal_vedant choudhari_a\\jobportal\\views\\account\\getapplicantdetails.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{951FB4FA-F4E0-41D5-B9EC-7BBF90C5372F}|JobPortal.csproj|solutionrelative:views\\account\\getapplicantdetails.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{951FB4FA-F4E0-41D5-B9EC-7BBF90C5372F}|JobPortal.csproj|c:\\users\\administrator\\downloads\\jobportal_vedant choudhari_a\\jobportal\\views\\account\\editprofileapplicant.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{951FB4FA-F4E0-41D5-B9EC-7BBF90C5372F}|JobPortal.csproj|solutionrelative:views\\account\\editprofileapplicant.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{951FB4FA-F4E0-41D5-B9EC-7BBF90C5372F}|JobPortal.csproj|c:\\users\\administrator\\downloads\\jobportal_vedant choudhari_a\\jobportal\\views\\admin\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{951FB4FA-F4E0-41D5-B9EC-7BBF90C5372F}|JobPortal.csproj|solutionrelative:views\\admin\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 21,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "CRUD_JOBS.cs",
+              "DocumentMoniker": "C:\\Users\\Administrator\\Downloads\\JobPortal_Vedant Choudhari_A\\JobPortal\\JobPortal_Database\\DB\\Jobs\\CRUD_JOBS.cs",
+              "RelativeDocumentMoniker": "JobPortal_Database\\DB\\Jobs\\CRUD_JOBS.cs",
+              "ToolTip": "C:\\Users\\Administrator\\Downloads\\JobPortal_Vedant Choudhari_A\\JobPortal\\JobPortal_Database\\DB\\Jobs\\CRUD_JOBS.cs",
+              "RelativeToolTip": "JobPortal_Database\\DB\\Jobs\\CRUD_JOBS.cs",
+              "ViewState": "AgIAADcAAAAAAAAAAAAswEgAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-12T11:25:08.457Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "Connection.cs",
+              "DocumentMoniker": "C:\\Users\\Administrator\\Downloads\\JobPortal_Vedant Choudhari_A\\JobPortal\\JobPortal_Database\\DB\\Connection.cs",
+              "RelativeDocumentMoniker": "JobPortal_Database\\DB\\Connection.cs",
+              "ToolTip": "C:\\Users\\Administrator\\Downloads\\JobPortal_Vedant Choudhari_A\\JobPortal\\JobPortal_Database\\DB\\Connection.cs",
+              "RelativeToolTip": "JobPortal_Database\\DB\\Connection.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAABiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-12T08:43:49.666Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "BusinessLogic.cs",
+              "DocumentMoniker": "C:\\Users\\Administrator\\Downloads\\JobPortal_Vedant Choudhari_A\\JobPortal\\JobPortal_Database\\DB\\BusinessLogic.cs",
+              "RelativeDocumentMoniker": "JobPortal_Database\\DB\\BusinessLogic.cs",
+              "ToolTip": "C:\\Users\\Administrator\\Downloads\\JobPortal_Vedant Choudhari_A\\JobPortal\\JobPortal_Database\\DB\\BusinessLogic.cs",
+              "RelativeToolTip": "JobPortal_Database\\DB\\BusinessLogic.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAtAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-12T08:43:48.364Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "AccountController.cs",
+              "DocumentMoniker": "C:\\Users\\Administrator\\Downloads\\JobPortal_Vedant Choudhari_A\\JobPortal\\Controllers\\AccountController.cs",
+              "RelativeDocumentMoniker": "Controllers\\AccountController.cs",
+              "ToolTip": "C:\\Users\\Administrator\\Downloads\\JobPortal_Vedant Choudhari_A\\JobPortal\\Controllers\\AccountController.cs",
+              "RelativeToolTip": "Controllers\\AccountController.cs",
+              "ViewState": "AgIAAGMAAAAAAAAAAAAAAHkAAAAyAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-22T09:42:45.92Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\Administrator\\Downloads\\JobPortal_Vedant Choudhari_A\\JobPortal\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "C:\\Users\\Administrator\\Downloads\\JobPortal_Vedant Choudhari_A\\JobPortal\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAAB8AAAAAAAAAAAAAACQAAAAhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-12T08:02:48.262Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "CRUD_Application.cs",
+              "DocumentMoniker": "C:\\Users\\Administrator\\Downloads\\JobPortal_Vedant Choudhari_A\\JobPortal\\JobPortal_Database\\DB\\Application\\CRUD_Application.cs",
+              "RelativeDocumentMoniker": "JobPortal_Database\\DB\\Application\\CRUD_Application.cs",
+              "ToolTip": "C:\\Users\\Administrator\\Downloads\\JobPortal_Vedant Choudhari_A\\JobPortal\\JobPortal_Database\\DB\\Application\\CRUD_Application.cs",
+              "RelativeToolTip": "JobPortal_Database\\DB\\Application\\CRUD_Application.cs",
+              "ViewState": "AgIAAK8AAAAAAAAAAAAAAMMAAAA2AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-09T14:57:16.295Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "Application.cs",
+              "DocumentMoniker": "C:\\Users\\Administrator\\Downloads\\JobPortal_Vedant Choudhari_A\\JobPortal\\Models\\Application.cs",
+              "RelativeDocumentMoniker": "Models\\Application.cs",
+              "ToolTip": "C:\\Users\\Administrator\\Downloads\\JobPortal_Vedant Choudhari_A\\JobPortal\\Models\\Application.cs",
+              "RelativeToolTip": "Models\\Application.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAiwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-08T15:34:23.023Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "Jobs.cs",
+              "DocumentMoniker": "C:\\Users\\Administrator\\Downloads\\JobPortal_Vedant Choudhari_A\\JobPortal\\Models\\Jobs.cs",
+              "RelativeDocumentMoniker": "Models\\Jobs.cs",
+              "ToolTip": "C:\\Users\\Administrator\\Downloads\\JobPortal_Vedant Choudhari_A\\JobPortal\\Models\\Jobs.cs",
+              "RelativeToolTip": "Models\\Jobs.cs",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-08T15:31:53.347Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "User.cs",
+              "DocumentMoniker": "C:\\Users\\Administrator\\Downloads\\JobPortal_Vedant Choudhari_A\\JobPortal\\Models\\User.cs",
+              "RelativeDocumentMoniker": "Models\\User.cs",
+              "ToolTip": "C:\\Users\\Administrator\\Downloads\\JobPortal_Vedant Choudhari_A\\JobPortal\\Models\\User.cs",
+              "RelativeToolTip": "Models\\User.cs",
+              "ViewState": "AgIAABgAAAAAAAAAAAAjwCcAAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-08T15:13:38.344Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "CRUD_Users.cs",
+              "DocumentMoniker": "C:\\Users\\Administrator\\Downloads\\JobPortal_Vedant Choudhari_A\\JobPortal\\JobPortal_Database\\DB\\Users\\CRUD_Users.cs",
+              "RelativeDocumentMoniker": "JobPortal_Database\\DB\\Users\\CRUD_Users.cs",
+              "ToolTip": "C:\\Users\\Administrator\\Downloads\\JobPortal_Vedant Choudhari_A\\JobPortal\\JobPortal_Database\\DB\\Users\\CRUD_Users.cs",
+              "RelativeToolTip": "JobPortal_Database\\DB\\Users\\CRUD_Users.cs",
+              "ViewState": "AgIAAK4BAAAAAAAAAAAmwMkBAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-08T15:04:27.019Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 27,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\Administrator\\Downloads\\JobPortal_Vedant Choudhari_A\\JobPortal\\Views\\Admin\\Index.cshtml",
+              "RelativeDocumentMoniker": "Views\\Admin\\Index.cshtml",
+              "ToolTip": "C:\\Users\\Administrator\\Downloads\\JobPortal_Vedant Choudhari_A\\JobPortal\\Views\\Admin\\Index.cshtml",
+              "RelativeToolTip": "Views\\Admin\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAHAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-09-12T03:58:20.017Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "AdminController.cs",
+              "DocumentMoniker": "C:\\Users\\Administrator\\Downloads\\JobPortal_Vedant Choudhari_A\\JobPortal\\Controllers\\AdminController.cs",
+              "RelativeDocumentMoniker": "Controllers\\AdminController.cs",
+              "ToolTip": "C:\\Users\\Administrator\\Downloads\\JobPortal_Vedant Choudhari_A\\JobPortal\\Controllers\\AdminController.cs",
+              "RelativeToolTip": "Controllers\\AdminController.cs",
+              "ViewState": "AgIAACsAAAAAAAAAAAAAACsAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-11T09:13:13.517Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "EmployerController.cs",
+              "DocumentMoniker": "C:\\Users\\Administrator\\Downloads\\JobPortal_Vedant Choudhari_A\\JobPortal\\Controllers\\EmployerController.cs",
+              "RelativeDocumentMoniker": "Controllers\\EmployerController.cs",
+              "ToolTip": "C:\\Users\\Administrator\\Downloads\\JobPortal_Vedant Choudhari_A\\JobPortal\\Controllers\\EmployerController.cs",
+              "RelativeToolTip": "Controllers\\EmployerController.cs",
+              "ViewState": "AgIAAKsAAAAAAAAAAAAAACkAAAAuAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-03T08:42:04.398Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "EditProfileApplicant.cshtml",
+              "DocumentMoniker": "C:\\Users\\Administrator\\Downloads\\JobPortal_Vedant Choudhari_A\\JobPortal\\Views\\Account\\EditProfileApplicant.cshtml",
+              "RelativeDocumentMoniker": "Views\\Account\\EditProfileApplicant.cshtml",
+              "ToolTip": "C:\\Users\\Administrator\\Downloads\\JobPortal_Vedant Choudhari_A\\JobPortal\\Views\\Account\\EditProfileApplicant.cshtml",
+              "RelativeToolTip": "Views\\Account\\EditProfileApplicant.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAALQBAAB+AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-09-08T10:56:09.308Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "Applicants.cshtml",
+              "DocumentMoniker": "C:\\Users\\Administrator\\Downloads\\JobPortal_Vedant Choudhari_A\\JobPortal\\Views\\Employer\\Applicants.cshtml",
+              "RelativeDocumentMoniker": "Views\\Employer\\Applicants.cshtml",
+              "ToolTip": "C:\\Users\\Administrator\\Downloads\\JobPortal_Vedant Choudhari_A\\JobPortal\\Views\\Employer\\Applicants.cshtml",
+              "RelativeToolTip": "Views\\Employer\\Applicants.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAFUBAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-09-10T07:17:34.914Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "GetApplicantDetails.cshtml",
+              "DocumentMoniker": "C:\\Users\\Administrator\\Downloads\\JobPortal_Vedant Choudhari_A\\JobPortal\\Views\\Account\\GetApplicantDetails.cshtml",
+              "RelativeDocumentMoniker": "Views\\Account\\GetApplicantDetails.cshtml",
+              "ToolTip": "C:\\Users\\Administrator\\Downloads\\JobPortal_Vedant Choudhari_A\\JobPortal\\Views\\Account\\GetApplicantDetails.cshtml",
+              "RelativeToolTip": "Views\\Account\\GetApplicantDetails.cshtml",
+              "ViewState": "AgIAACoAAAAAAAAAAAAAAEkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-09-04T07:02:53.623Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "GetRecruiterDetails.cshtml",
+              "DocumentMoniker": "C:\\Users\\Administrator\\Downloads\\JobPortal_Vedant Choudhari_A\\JobPortal\\Views\\Account\\GetRecruiterDetails.cshtml",
+              "RelativeDocumentMoniker": "Views\\Account\\GetRecruiterDetails.cshtml",
+              "ToolTip": "C:\\Users\\Administrator\\Downloads\\JobPortal_Vedant Choudhari_A\\JobPortal\\Views\\Account\\GetRecruiterDetails.cshtml",
+              "RelativeToolTip": "Views\\Account\\GetRecruiterDetails.cshtml",
+              "ViewState": "AgIAAB4AAAAAAAAAAAAAAA4AAAA/AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-09-08T10:24:35.806Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "Application_Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\Administrator\\Downloads\\JobPortal_Vedant Choudhari_A\\JobPortal\\Views\\JobSeeker\\Application_Index.cshtml",
+              "RelativeDocumentMoniker": "Views\\JobSeeker\\Application_Index.cshtml",
+              "ToolTip": "C:\\Users\\Administrator\\Downloads\\JobPortal_Vedant Choudhari_A\\JobPortal\\Views\\JobSeeker\\Application_Index.cshtml",
+              "RelativeToolTip": "Views\\JobSeeker\\Application_Index.cshtml",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAACsAAAASAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-08-26T07:09:48.684Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "EditProfileRecruiter.cshtml",
+              "DocumentMoniker": "C:\\Users\\Administrator\\Downloads\\JobPortal_Vedant Choudhari_A\\JobPortal\\Views\\Account\\EditProfileRecruiter.cshtml",
+              "RelativeDocumentMoniker": "Views\\Account\\EditProfileRecruiter.cshtml",
+              "ToolTip": "C:\\Users\\Administrator\\Downloads\\JobPortal_Vedant Choudhari_A\\JobPortal\\Views\\Account\\EditProfileRecruiter.cshtml",
+              "RelativeToolTip": "Views\\Account\\EditProfileRecruiter.cshtml",
+              "ViewState": "AgIAAKMAAAAAAAAAAAAAANkAAACAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-09-08T04:23:28.824Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "SignUp.cshtml",
+              "DocumentMoniker": "C:\\Users\\Administrator\\Downloads\\JobPortal_Vedant Choudhari_A\\JobPortal\\Views\\Account\\SignUp.cshtml",
+              "RelativeDocumentMoniker": "Views\\Account\\SignUp.cshtml",
+              "ToolTip": "C:\\Users\\Administrator\\Downloads\\JobPortal_Vedant Choudhari_A\\JobPortal\\Views\\Account\\SignUp.cshtml",
+              "RelativeToolTip": "Views\\Account\\SignUp.cshtml",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAGMCAABFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-09-10T05:18:36.809Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "ApplicantUserDetails.cshtml",
+              "DocumentMoniker": "C:\\Users\\Administrator\\Downloads\\JobPortal_Vedant Choudhari_A\\JobPortal\\Views\\Employer\\ApplicantUserDetails.cshtml",
+              "RelativeDocumentMoniker": "Views\\Employer\\ApplicantUserDetails.cshtml",
+              "ToolTip": "C:\\Users\\Administrator\\Downloads\\JobPortal_Vedant Choudhari_A\\JobPortal\\Views\\Employer\\ApplicantUserDetails.cshtml",
+              "RelativeToolTip": "Views\\Employer\\ApplicantUserDetails.cshtml",
+              "ViewState": "AgIAAFQBAAAAAAAAAAAAAHkBAAAcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-09-03T11:05:28.851Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Applicant_Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\Administrator\\Downloads\\JobPortal_Vedant Choudhari_A\\JobPortal\\Views\\JobSeeker\\Applicant_Index.cshtml",
+              "RelativeDocumentMoniker": "Views\\JobSeeker\\Applicant_Index.cshtml",
+              "ToolTip": "C:\\Users\\Administrator\\Downloads\\JobPortal_Vedant Choudhari_A\\JobPortal\\Views\\JobSeeker\\Applicant_Index.cshtml",
+              "RelativeToolTip": "Views\\JobSeeker\\Applicant_Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAABPAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-08-26T04:23:56.455Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "Recruiter_Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\Administrator\\Downloads\\JobPortal_Vedant Choudhari_A\\JobPortal\\Views\\Employer\\Recruiter_Index.cshtml",
+              "RelativeDocumentMoniker": "Views\\Employer\\Recruiter_Index.cshtml",
+              "ToolTip": "C:\\Users\\Administrator\\Downloads\\JobPortal_Vedant Choudhari_A\\JobPortal\\Views\\Employer\\Recruiter_Index.cshtml",
+              "RelativeToolTip": "Views\\Employer\\Recruiter_Index.cshtml",
+              "ViewState": "AgIAAJkBAAAAAAAAAAAYwKYBAAAWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-08-25T03:40:16.772Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "C:\\Users\\Administrator\\Downloads\\JobPortal_Vedant Choudhari_A\\JobPortal\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "C:\\Users\\Administrator\\Downloads\\JobPortal_Vedant Choudhari_A\\JobPortal\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AgIAAEIBAAAAAAAAAAAAACcBAAB9AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-09-03T08:40:39.85Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "Create.cshtml",
+              "DocumentMoniker": "C:\\Users\\Administrator\\Downloads\\JobPortal_Vedant Choudhari_A\\JobPortal\\Views\\Employer\\Create.cshtml",
+              "RelativeDocumentMoniker": "Views\\Employer\\Create.cshtml",
+              "ToolTip": "C:\\Users\\Administrator\\Downloads\\JobPortal_Vedant Choudhari_A\\JobPortal\\Views\\Employer\\Create.cshtml",
+              "RelativeToolTip": "Views\\Employer\\Create.cshtml",
+              "ViewState": "AgIAAJgBAAAAAAAAAAAAAKwBAAA+AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-08-22T03:57:55.031Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "JobSeekerController.cs",
+              "DocumentMoniker": "C:\\Users\\Administrator\\Downloads\\JobPortal_Vedant Choudhari_A\\JobPortal\\Controllers\\JobSeekerController.cs",
+              "RelativeDocumentMoniker": "Controllers\\JobSeekerController.cs",
+              "ToolTip": "C:\\Users\\Administrator\\Downloads\\JobPortal_Vedant Choudhari_A\\JobPortal\\Controllers\\JobSeekerController.cs",
+              "RelativeToolTip": "Controllers\\JobSeekerController.cs",
+              "ViewState": "AgIAABIAAAAAAAAAAAAAABAAAAAvAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-02T04:57:00.567Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "Login.cshtml",
+              "DocumentMoniker": "C:\\Users\\Administrator\\Downloads\\JobPortal_Vedant Choudhari_A\\JobPortal\\Views\\Account\\Login.cshtml",
+              "RelativeDocumentMoniker": "Views\\Account\\Login.cshtml",
+              "ToolTip": "C:\\Users\\Administrator\\Downloads\\JobPortal_Vedant Choudhari_A\\JobPortal\\Views\\Account\\Login.cshtml",
+              "RelativeToolTip": "Views\\Account\\Login.cshtml",
+              "ViewState": "AgIAAA0BAAAAAAAAAAAAAAsBAABGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-08-22T04:28:28.253Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "Update.cshtml",
+              "DocumentMoniker": "C:\\Users\\Administrator\\Downloads\\JobPortal_Vedant Choudhari_A\\JobPortal\\Views\\Employer\\Update.cshtml",
+              "RelativeDocumentMoniker": "Views\\Employer\\Update.cshtml",
+              "ToolTip": "C:\\Users\\Administrator\\Downloads\\JobPortal_Vedant Choudhari_A\\JobPortal\\Views\\Employer\\Update.cshtml",
+              "RelativeToolTip": "Views\\Employer\\Update.cshtml",
+              "ViewState": "AgIAAOEBAAAAAAAAAAAAAPcBAABCAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-08-25T04:01:58.517Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

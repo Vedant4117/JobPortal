@@ -1,0 +1,437 @@
+﻿@model Jobs
+@{
+    ViewBag.Title = "Create a Job";
+}
+
+<style>
+    .job-creation-bg {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        min-height: 100vh;
+        position: relative;
+        overflow: hidden;
+    }
+
+        .job-creation-bg::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><defs><radialGradient id="a" cx="50%" cy="50%"><stop offset="0%" stop-color="rgba(255,255,255,0.1)"/><stop offset="100%" stop-color="rgba(255,255,255,0)"/></radialGradient></defs><circle cx="200" cy="200" r="100" fill="url(%23a)"/><circle cx="800" cy="300" r="150" fill="url(%23a)"/><circle cx="300" cy="800" r="120" fill="url(%23a)"/><circle cx="900" cy="700" r="80" fill="url(%23a)"/></svg>');
+            opacity: 0.3;
+        }
+
+    .form-container {
+        position: relative;
+        z-index: 2;
+    }
+
+    .job-form-card {
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(20px);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        box-shadow: 0 30px 60px rgba(0, 0, 0, 0.2);
+        transition: all 0.4s ease;
+        width: 500px;
+        border-radius: 2rem;
+        overflow: hidden;
+        position: relative;
+    }
+
+        .job-form-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 6px;
+            background: linear-gradient(90deg, #667eea, #764ba2, #667eea);
+            background-size: 200% 100%;
+            animation: shimmer 3s infinite;
+        }
+
+    @@keyframes shimmer {
+        0%
+
+    {
+        background-position: -200% 0;
+    }
+
+    100% {
+        background-position: 200% 0;
+    }
+
+    }
+
+    .job-form-card:hover {
+        transform: translateY(-10px) scale(1.02);
+        box-shadow: 0 40px 80px rgba(102, 126, 234, 0.3);
+        background: rgba(255, 255, 255, 1);
+    }
+
+    .form-title {
+        background: linear-gradient(45deg, #667eea, #764ba2);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        font-weight: 700;
+        text-align: center;
+        margin-bottom: 2rem;
+        font-size: 2.5rem;
+        position: relative;
+        padding-top: 1rem;
+    }
+
+        .form-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            border-radius: 2px;
+        }
+
+        .form-title::before {
+            content: '💼';
+            position: absolute;
+            top: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 2rem;
+            animation: bounce 2s infinite;
+        }
+
+    @@keyframes bounce {
+        0%, 20%, 50%, 80%, 100%
+
+    {
+        transform: translateX(-50%) translateY(0);
+    }
+
+    40% {
+        transform: translateX(-50%) translateY(-10px);
+    }
+
+    60% {
+        transform: translateX(-50%) translateY(-5px);
+    }
+
+    }
+
+    .form-group {
+        position: relative;
+        margin-bottom: 2rem;
+    }
+
+    .form-label {
+        color: #495057;
+        font-weight: 600;
+        margin-bottom: 0.75rem;
+        font-size: 1rem;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    .form-control {
+        border: 2px solid #e9ecef;
+        transition: all 0.4s ease;
+        background: rgba(255, 255, 255, 0.9);
+        font-size: 1rem;
+        padding: 1rem 1.5rem;
+        position: relative;
+    }
+
+        .form-control:focus {
+            border-color: #667eea;
+            box-shadow: 0 0 25px rgba(102, 126, 234, 0.3);
+            background: rgba(255, 255, 255, 1);
+            transform: translateY(-3px);
+            outline: none;
+        }
+
+    .input-wrapper {
+        position: relative;
+    }
+
+    .input-icon {
+        position: absolute;
+        right: 1.5rem;
+        top: 50%;
+        transform: translateY(-50%);
+        color: #667eea;
+        font-size: 1.2rem;
+        pointer-events: none;
+        transition: all 0.3s ease;
+    }
+
+    .form-control:focus + .input-icon {
+        color: #764ba2;
+        transform: translateY(-50%) scale(1.1);
+    }
+
+    textarea.form-control {
+        min-height: 120px;
+        resize: vertical;
+        border-radius: 1rem !important;
+    }
+
+    .btn-create {
+        background: linear-gradient(45deg, #28a745, #20c997);
+        border: none;
+        color: white;
+        padding: 1rem 2rem;
+        font-weight: 700;
+        font-size: 1.2rem;
+        transition: all 0.4s ease;
+        position: relative;
+        overflow: hidden;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        margin-top: 1rem;
+    }
+
+        .btn-create::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+            transition: left 0.6s;
+        }
+
+        .btn-create:hover::before {
+            left: 100%;
+        }
+
+        .btn-create:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(40, 167, 69, 0.4);
+            background: linear-gradient(45deg, #34ce57, #17a2b8);
+            color: white;
+        }
+
+        .btn-create:active {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(40, 167, 69, 0.4);
+        }
+
+    .validation-summary {
+        background: linear-gradient(45deg, rgba(220, 53, 69, 0.1), rgba(248, 215, 218, 0.3));
+        border: 1px solid rgba(220, 53, 69, 0.3);
+        border-radius: 1rem;
+        padding: 1rem 1.5rem;
+        margin-bottom: 1.5rem;
+        animation: shake 0.6s ease-in-out;
+    }
+
+    .text-danger {
+        color: #e74c3c !important;
+        font-size: 0.9rem;
+        font-weight: 500;
+        margin-top: 0.5rem;
+        animation: fadeIn 0.3s ease;
+    }
+
+    @@keyframes fadeIn {
+        from
+
+    {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    }
+
+    @@keyframes shake {
+        0%, 20%, 40%, 60%, 80%
+
+    {
+        transform: translateX(0);
+    }
+
+    10%, 30%, 50%, 70%, 90% {
+        transform: translateX(-5px);
+    }
+
+    }
+
+    .field-title::before {
+        content: '📝';
+        margin-right: 0.5rem;
+    }
+
+    .field-description::before {
+        content: '📋';
+        margin-right: 0.5rem;
+    }
+
+    .field-location::before {
+        content: '📍';
+        margin-right: 0.5rem;
+    }
+
+    .field-salary::before {
+        content: '💰';
+        margin-right: 0.5rem;
+    }
+
+    .floating-particles {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        z-index: 1;
+    }
+
+    .particle {
+        position: absolute;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 50%;
+        animation: float 6s infinite ease-in-out;
+    }
+
+        .particle:nth-child(1) {
+            width: 10px;
+            height: 10px;
+            left: 10%;
+            animation-delay: 0s;
+        }
+
+        .particle:nth-child(2) {
+            width: 15px;
+            height: 15px;
+            left: 70%;
+            animation-delay: 1s;
+        }
+
+        .particle:nth-child(3) {
+            width: 8px;
+            height: 8px;
+            left: 40%;
+            animation-delay: 2s;
+        }
+
+        .particle:nth-child(4) {
+            width: 12px;
+            height: 12px;
+            left: 90%;
+            animation-delay: 3s;
+        }
+
+    @@keyframes float {
+        0%, 100%
+
+    {
+        transform: translateY(100vh) rotate(0deg);
+        opacity: 0;
+    }
+
+    10%, 90% {
+        opacity: 1;
+    }
+
+    50% {
+        transform: translateY(-10px) rotate(180deg);
+    }
+
+    }
+
+    @@media (max-width: 768px) {
+        .job-form-card
+
+    {
+        width: 90%;
+        margin: 1rem;
+    }
+
+    .form-title {
+        font-size: 2rem;
+    }
+
+    .form-control {
+        padding: 0.875rem 1.25rem;
+    }
+
+    .btn-create {
+        font-size: 1rem;
+        padding: 0.875rem 1.5rem;
+    }
+
+    }
+</style>
+
+<div class="job-creation-bg d-flex justify-content-center align-items-center min-vh-100">
+    <div class="floating-particles">
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+    </div>
+
+    <div class="form-container">
+        <div class="card job-form-card shadow-lg p-5">
+            <h2 class="form-title">Create New Job</h2>
+
+            <form asp-action="Create" method="post">
+                @Html.ValidationSummary(true, "", new { @class = "text-danger validation-summary" })
+
+                <div class="form-group mb-3">
+                    @Html.LabelFor(model => model.Title, new { @class = "form-label fw-semibold field-title" })
+                    <div class="input-wrapper">
+                        @Html.TextBoxFor(model => model.Title, new { @class = "form-control rounded-pill", placeholder = "Enter job title..." })
+                        <i class="fas fa-briefcase input-icon"></i>
+                    </div>
+                    @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="form-group mb-3">
+                    @Html.LabelFor(model => model.Description, new { @class = "form-label fw-semibold field-description" })
+                    <div class="input-wrapper">
+                        @Html.TextAreaFor(model => model.Description, new { @class = "form-control", placeholder = "Describe the job requirements and responsibilities..." })
+                        <i class="fas fa-align-left input-icon"></i>
+                    </div>
+                    @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="form-group mb-3">
+                    @Html.LabelFor(model => model.Location, new { @class = "form-label fw-semibold field-location" })
+                    <div class="input-wrapper">
+                        @Html.TextBoxFor(model => model.Location, new { @class = "form-control rounded-pill", placeholder = "Enter job location..." })
+                        <i class="fas fa-map-marker-alt input-icon"></i>
+                    </div>
+                    @Html.ValidationMessageFor(model => model.Location, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="form-group mb-3">
+                    @Html.LabelFor(model => model.Salary, new { @class = "form-label fw-semibold field-salary" })
+                    <div class="input-wrapper">
+                        @Html.TextBoxFor(model => model.Salary, new { @class = "form-control rounded-pill", placeholder = "Enter salary range..." })
+                        <i class="fas fa-indian-rupee-sign input-icon"></i>
+                    </div>
+                    @Html.ValidationMessageFor(model => model.Salary, "", new { @class = "text-danger" })
+                </div>
+
+                <button type="submit" class="btn btn-create w-100 rounded-pill">
+                    <i class="fas fa-plus me-2"></i>Create Job
+                </button>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">

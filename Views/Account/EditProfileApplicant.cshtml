@@ -1,0 +1,456 @@
+﻿@model User
+@{
+    ViewBag.Title = "Update the Job";
+}
+
+<style>
+    .gradient-bg {
+        background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 25%, #90caf9 50%, #64b5f6 75%, #42a5f5 100%);
+        min-height: 100vh;
+        position: relative;
+        overflow: hidden;
+    }
+
+        .gradient-bg::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><defs><radialGradient id="cloud" cx="50%" cy="50%"><stop offset="0%" stop-color="rgba(255,255,255,0.4)"/><stop offset="100%" stop-color="rgba(255,255,255,0)"/></radialGradient></defs><circle cx="200" cy="150" r="80" fill="url(%23cloud)"/><circle cx="800" cy="250" r="120" fill="url(%23cloud)"/><circle cx="300" cy="700" r="100" fill="url(%23cloud)"/><circle cx="700" cy="800" r="90" fill="url(%23cloud)"/><circle cx="500" cy="400" r="70" fill="url(%23cloud)"/></svg>');
+            opacity: 0.6;
+            animation: cloud-drift 20s infinite ease-in-out;
+        }
+
+    @@keyframes cloud-drift {
+        0%, 100%
+
+    {
+        transform: translateX(0) translateY(0) scale(1);
+    }
+
+    25% {
+        transform: translateX(10px) translateY(-15px) scale(1.05);
+    }
+
+    50% {
+        transform: translateX(-15px) translateY(10px) scale(0.95);
+    }
+
+    75% {
+        transform: translateX(20px) translateY(-5px) scale(1.02);
+    }
+
+    }
+
+    .form-card {
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(15px);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        box-shadow: 0 25px 50px rgba(66, 165, 245, 0.2);
+        transition: transform 0.4s ease, box-shadow 0.4s ease;
+    }
+
+        .form-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 35px 70px rgba(66, 165, 245, 0.3);
+        }
+
+    .form-title {
+        background: linear-gradient(45deg, #1976d2, #42a5f5, #64b5f6);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        font-weight: 700;
+        text-align: center;
+        margin-bottom: 2rem;
+        font-size: 2rem;
+        position: relative;
+    }
+
+        .form-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(45deg, #1976d2, #42a5f5);
+            border-radius: 2px;
+            animation: title-glow 2s infinite;
+        }
+
+    @@keyframes title-glow {
+        0%, 100%
+
+    {
+        opacity: 1;
+        width: 80px;
+    }
+
+    50% {
+        opacity: 0.7;
+        width: 120px;
+    }
+
+    }
+
+    .form-control {
+        border: 2px solid #e3f2fd;
+        transition: all 0.4s ease;
+        background: rgba(255, 255, 255, 0.9);
+    }
+
+        .form-control:focus {
+            border-color: #42a5f5;
+            box-shadow: 0 0 25px rgba(66, 165, 245, 0.3);
+            background: rgba(255, 255, 255, 1);
+            transform: translateY(-3px);
+        }
+
+    .form-label {
+        color: #1565c0;
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+        font-size: 0.95rem;
+    }
+
+    .btn-update {
+        background: linear-gradient(45deg, #1976d2, #42a5f5, #64b5f6);
+        background-size: 300% 300%;
+        border: none;
+        font-weight: 600;
+        padding: 12px 30px;
+        font-size: 1.1rem;
+        transition: all 0.4s ease;
+        position: relative;
+        overflow: hidden;
+        animation: btn-gradient 4s infinite;
+    }
+
+    @@keyframes btn-gradient {
+        0%
+
+    {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+
+    }
+
+    .btn-update::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+        transition: left 0.6s;
+    }
+
+    .btn-update:hover::before {
+        left: 100%;
+    }
+
+    .btn-update:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 20px 40px rgba(25, 118, 210, 0.4);
+        color: white;
+        animation-duration: 2s;
+    }
+
+    .form-floating {
+        position: relative;
+        margin-bottom: 1.5rem;
+    }
+
+    .floating-label {
+        position: absolute;
+        top: 50%;
+        left: 15px;
+        transform: translateY(-50%);
+        background: white;
+        padding: 0 8px;
+        color: #90caf9;
+        transition: all 0.3s ease;
+        pointer-events: none;
+        font-size: 0.9rem;
+    }
+
+    .form-control:focus + .floating-label,
+    .form-control:not(:placeholder-shown) + .floating-label {
+        top: 0;
+        font-size: 0.8rem;
+        color: #1976d2;
+        font-weight: 600;
+    }
+
+    .validation-message {
+        color: #d32f2f;
+        font-size: 0.85rem;
+        margin-top: 0.25rem;
+        animation: shake 0.5s ease-in-out;
+    }
+
+    @@keyframes shake {
+        0%, 20%, 40%, 60%, 80%
+
+    {
+        transform: translateX(0);
+    }
+
+    10%, 30%, 50%, 70%, 90% {
+        transform: translateX(-3px);
+    }
+
+    }
+
+    .input-group {
+        position: relative;
+        margin-bottom: 1.5rem;
+    }
+
+    .input-icon {
+        position: absolute;
+        right: 15px;
+        top: 50%;
+        transform: translateY(-50%);
+        background: linear-gradient(45deg, #1976d2, #42a5f5);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        z-index: 5;
+        font-size: 1.2rem;
+        transition: all 0.3s ease;
+    }
+
+    .form-control:focus ~ .input-icon {
+        transform: translateY(-50%) scale(1.1);
+        filter: drop-shadow(0 0 8px rgba(66, 165, 245, 0.5));
+    }
+
+    textarea.form-control {
+        min-height: 100px;
+        resize: vertical;
+    }
+
+    .card-header {
+        background: linear-gradient(45deg, rgba(25, 118, 210, 0.1), rgba(66, 165, 245, 0.1));
+        border-bottom: 2px solid rgba(66, 165, 245, 0.3);
+        padding: 1.5rem;
+        border-radius: 1rem 1rem 0 0 !important;
+        position: relative;
+        overflow: hidden;
+    }
+
+        .card-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #1976d2, #42a5f5, #64b5f6, #1976d2);
+            background-size: 200% 100%;
+            animation: header-shine 3s infinite;
+        }
+
+    @@keyframes header-shine {
+        0%
+
+    {
+        background-position: 0% 0%;
+    }
+
+    100% {
+        background-position: 200% 0%;
+    }
+
+    }
+
+    .floating-bubbles {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        z-index: 1;
+    }
+
+    .bubble {
+        position: absolute;
+        background: rgba(66, 165, 245, 0.1);
+        border-radius: 50%;
+        animation: bubble-float 8s infinite ease-in-out;
+    }
+
+        .bubble:nth-child(1) {
+            width: 15px;
+            height: 15px;
+            left: 20%;
+            animation-delay: 0s;
+        }
+
+        .bubble:nth-child(2) {
+            width: 20px;
+            height: 20px;
+            left: 70%;
+            animation-delay: 2s;
+        }
+
+        .bubble:nth-child(3) {
+            width: 12px;
+            height: 12px;
+            left: 50%;
+            animation-delay: 4s;
+        }
+
+        .bubble:nth-child(4) {
+            width: 18px;
+            height: 18px;
+            left: 80%;
+            animation-delay: 6s;
+        }
+
+    @@keyframes bubble-float {
+        0%, 100%
+
+    {
+        transform: translateY(100vh) scale(1);
+        opacity: 0;
+    }
+
+    10%, 90% {
+        opacity: 0.6;
+    }
+
+    50% {
+        transform: translateY(-50px) scale(1.2);
+        opacity: 0.8;
+    }
+
+    }
+
+    .alert-danger {
+        background: linear-gradient(45deg, rgba(211, 47, 47, 0.1), rgba(244, 143, 177, 0.2));
+        border: 2px solid rgba(211, 47, 47, 0.3);
+        color: #d32f2f;
+    }
+
+    .card-body {
+        position: relative;
+        z-index: 2;
+    }
+
+    @@media (max-width: 768px) {
+        .form-title
+
+    {
+        font-size: 1.8rem;
+    }
+
+    .form-card {
+        margin: 1rem;
+    }
+
+    .input-icon {
+        font-size: 1.1rem;
+    }
+
+    }
+</style>
+
+<div class="gradient-bg d-flex justify-content-center align-items-center">
+    <div class="floating-bubbles">
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+    </div>
+
+    <div class="container py-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-6 col-md-8 col-sm-10">
+                <div class="card form-card border-0 rounded-4">
+                    <div class="card-header">
+                        <h2 class="form-title mb-0">Update Job Profile</h2>
+                    </div>
+                    <div class="card-body p-4">
+                        <form asp-action="EditProfileApplicant" method="post">
+                            @Html.ValidationSummary(true, "", new { @class = "alert alert-danger rounded-3" })
+
+
+                            <div class="input-group">
+                                <br />
+                                @Html.LabelFor(model => model.Name, new { @class = "form-label", style = "padding-top:10px" }) &nbsp;&nbsp;
+                                @Html.TextBoxFor(model => model.Name, new { @class = "form-control rounded-pill", placeholder = " " })
+                                <i class="fas fa-user input-icon"></i>
+                                @Html.ValidationMessageFor(model => model.Name, "", new { @class = "validation-message" })
+                            </div>
+
+
+                            <div class="input-group">
+                                <br />
+                                @Html.LabelFor(model => model.Description, new { @class = "form-label"}) &nbsp;&nbsp;
+                                @Html.TextAreaFor(model => model.Description, new { @class = "form-control rounded-3", placeholder = " ", rows = "4" })
+                                <i class="fas fa-align-left input-icon"></i>
+                                @Html.ValidationMessageFor(model => model.Description, "", new { @class = "validation-message" })
+                            </div>
+
+
+                            <div class="input-group">
+                                @Html.LabelFor(model => model.Skills, new { @class = "form-label", style = "padding-top:10px" })&nbsp;&nbsp;
+                                @Html.TextBoxFor(model => model.Skills, new { @class = "form-control rounded-pill", placeholder = " " })
+                                <i class="fas fa-tools input-icon"></i>
+                                @Html.ValidationMessageFor(model => model.Skills, "", new { @class = "validation-message" })
+                            </div>
+
+
+                            <div class="input-group">
+                                @Html.LabelFor(model => model.Experience, new { @class = "form-label", style = "padding-top:10px" })&nbsp;&nbsp;
+                                @Html.TextBoxFor(model => model.Experience, new { @class = "form-control rounded-pill", placeholder = " " })
+                                <i class="fas fa-briefcase input-icon"></i>
+                                @Html.ValidationMessageFor(model => model.Experience, "", new { @class = "validation-message" })
+                            </div>
+
+
+                            <div class="input-group">
+                                @Html.LabelFor(model => model.DOB, new { @class = "form-label", style = "padding-top:10px" })&nbsp;&nbsp;
+                                @Html.TextBoxFor(model => model.DOB, new { @class = "form-control rounded-pill" })
+                                <i class="fas fa-calendar-alt input-icon"></i>
+                                @Html.ValidationMessageFor(model => model.DOB, "", new { @class = "validation-message" })
+                            </div>
+
+
+                            <div class="input-group">
+                                @Html.LabelFor(model => model.JobRole, new { @class = "form-label", style = "padding-top:10px" })&nbsp;&nbsp;
+                                @Html.TextBoxFor(model => model.JobRole, new { @class = "form-control rounded-pill", placeholder = " " })
+                                <i class="fas fa-id-badge input-icon"></i>
+                                @Html.ValidationMessageFor(model => model.JobRole, "", new { @class = "validation-message" })
+                            </div>
+
+                            <div class="text-center mt-4">
+                                <button type="submit" class="btn btn-update text-white w-100 rounded-pill">
+                                    <i class="fas fa-sync-alt me-2"></i>Update Profile
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">

@@ -1,0 +1,451 @@
+﻿@model List<User>
+@{
+    ViewData["Title"] = "Job Applicants";
+}
+
+<style>
+    .applicants-container {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        min-height: 100vh;
+        padding: 2rem 0;
+    }
+
+    .content-wrapper {
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(15px);
+        border-radius: 2rem;
+        box-shadow: 0 25px 50px rgba(0, 0, 0, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        padding: 2.5rem;
+        margin: 0 auto;
+        max-width: 1200px;
+    }
+
+    .page-title {
+        background: linear-gradient(45deg, #667eea, #764ba2);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        font-weight: 700;
+        text-align: center;
+        margin-bottom: 3rem;
+        font-size: 2.5rem;
+        position: relative;
+    }
+
+        .page-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            border-radius: 2px;
+        }
+
+    .table-container {
+        padding: 2rem;
+        background: white;
+        overflow: visible;
+    }
+
+    .export-section {
+        display: flex;
+        justify-content: flex-end;
+        margin-bottom: 1.5rem;
+    }
+
+    .export-btn {
+        background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+        border: none;
+        border-radius: 12px;
+        padding: 0.75rem 1.5rem;
+        font-weight: 600;
+        color: white;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 15px rgba(40, 167, 69, 0.3);
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        position: relative;
+        overflow: hidden;
+    }
+
+        .export-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.6s;
+        }
+
+        .export-btn:hover::before {
+            left: 100%;
+        }
+
+        .export-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(40, 167, 69, 0.4);
+            color: white;
+            text-decoration: none;
+        }
+
+        .export-btn:active {
+            transform: translateY(0);
+        }
+
+    .modern-table {
+        background: rgba(255, 255, 255, 0.9);
+        border-radius: 1.5rem;
+        overflow: hidden;
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+        border: none;
+        backdrop-filter: blur(10px);
+    }
+
+        .modern-table thead {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+            .modern-table thead th {
+                border: none;
+                padding: 1.5rem 1.25rem;
+                font-weight: 600;
+                text-transform: uppercase;
+                letter-spacing: 0.5px;
+                font-size: 0.9rem;
+                position: relative;
+            }
+
+                .modern-table thead th:not(:last-child)::after {
+                    content: '';
+                    position: absolute;
+                    right: 0;
+                    top: 25%;
+                    height: 50%;
+                    width: 1px;
+                    background: rgba(255, 255, 255, 0.3);
+                }
+
+        .modern-table tbody tr {
+            transition: all 0.3s ease;
+            border: none;
+        }
+
+            .modern-table tbody tr:hover {
+                background: linear-gradient(90deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1));
+                transform: translateY(-2px);
+                box-shadow: 0 5px 15px rgba(102, 126, 234, 0.2);
+            }
+
+        .modern-table tbody td {
+            padding: 1.25rem;
+            border: none;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            vertical-align: middle;
+            font-weight: 500;
+            color: #495057;
+        }
+
+        .modern-table tbody tr:last-child td {
+            border-bottom: none;
+        }
+
+    .modern-create-btn {
+        background: linear-gradient(45deg, #28a745, #20c997);
+        border: none;
+        color: white;
+        padding: 0.75rem 1.5rem;
+        border-radius: 50px;
+        font-weight: 600;
+        font-size: 0.9rem;
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        min-width: 120px;
+    }
+
+        .modern-create-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.5s;
+        }
+
+        .modern-create-btn:hover::before {
+            left: 100%;
+        }
+
+        .modern-create-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(40, 167, 69, 0.4);
+            background: linear-gradient(45deg, #34ce57, #17a2b8);
+            color: white;
+        }
+
+        .modern-create-btn:active {
+            transform: translateY(-1px);
+            box-shadow: 0 5px 15px rgba(40, 167, 69, 0.4);
+        }
+
+    .applicant-name {
+        font-weight: 600;
+        color: #2c3e50;
+        display: flex;
+        align-items: center;
+    }
+
+        .applicant-name::before {
+            content: '👤';
+            margin-right: 0.5rem;
+            font-size: 1.2rem;
+        }
+
+    .applicant-email {
+        color: #667eea;
+        font-family: 'Courier New', monospace;
+        font-size: 0.9rem;
+        display: flex;
+        align-items: center;
+    }
+
+        .applicant-email::before {
+            content: '📧';
+            margin-right: 0.5rem;
+            font-size: 1rem;
+        }
+
+    .table-stats {
+        background: linear-gradient(45deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1));
+        border-radius: 1rem;
+        padding: 1rem 1.5rem;
+        margin-bottom: 2rem;
+        text-align: center;
+        border: 2px solid rgba(102, 126, 234, 0.2);
+    }
+
+    .stats-text {
+        color: #667eea;
+        font-weight: 600;
+        font-size: 1.1rem;
+        margin: 0;
+    }
+
+    .empty-state {
+        text-align: center;
+        padding: 4rem 2rem;
+        color: #6c757d;
+    }
+
+        .empty-state i {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            color: #dee2e6;
+        }
+
+        .empty-state h3 {
+            color: #495057;
+            margin-bottom: 0.5rem;
+        }
+
+        .empty-state p {
+            color: #6c757d;
+        }
+
+    @@media (max-width: 768px) {
+        .content-wrapper {
+            margin: 1rem;
+            padding: 1.5rem;
+            border-radius: 1.5rem;
+        }
+
+        .page-title {
+            font-size: 2rem;
+        }
+
+        .modern-table {
+            font-size: 0.9rem;
+        }
+
+            .modern-table thead th,
+            .modern-table tbody td {
+                padding: 1rem 0.75rem;
+            }
+
+        .modern-create-btn {
+            padding: 0.6rem 1.2rem;
+            font-size: 0.8rem;
+            min-width: 100px;
+        }
+    }
+
+    @@keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .modern-table tbody tr {
+        animation: fadeInUp 0.5s ease forwards;
+    }
+
+        .modern-table tbody tr:nth-child(1) {
+            animation-delay: 0.1s;
+        }
+
+        .modern-table tbody tr:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .modern-table tbody tr:nth-child(3) {
+            animation-delay: 0.3s;
+        }
+
+        .modern-table tbody tr:nth-child(4) {
+            animation-delay: 0.4s;
+        }
+
+        .modern-table tbody tr:nth-child(5) {
+            animation-delay: 0.5s;
+        }
+</style>
+
+<div class="applicants-container">
+    <div class="content-wrapper">
+        <h2 class="page-title">Job Applicants</h2>
+
+        <div class="table-container">
+            <div class="export-section">
+                <form asp-action="ExportUsersToExcel" method="get" asp-controller="Employer">
+                    <button type="submit" class="export-btn">
+                        <input type="hidden" name="Id" value="@ViewBag.JobId" />
+                        <i class="bi bi-download"></i> Export to Excel
+                    </button>
+                </form>
+            </div>
+
+
+            @if (Model != null && Model.Any())
+            {
+                <div class="table-stats">
+                    <p class="stats-text">
+                        <i class="fas fa-users me-2"></i>
+                        Total Applicants: <strong>@Model.Count</strong>
+                    </p>
+                </div>
+
+                <div class="table-responsive">
+                    <table class="table modern-table">
+                        <thead>
+                            <tr>
+                                <th>
+                                    <i class="fas fa-user me-2"></i>Name
+                                </th>
+                                <th>
+                                    <i class="fas fa-envelope me-2"></i>Email
+                                </th>
+                                <th>
+                                    <i class="fas fa-cog me-2"></i>Status
+                                </th>
+                                <th>
+                                    <i class="fas fa-cog me-2"></i>Actions
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var applicant in Model)
+                            {
+                                <tr>
+                                    <td>
+                                        <div class="applicant-name">@applicant.Name</div>
+                                    </td>
+                                    <td>
+                                        <div class="applicant-email">@applicant.Email</div>
+                                    </td>
+                                    <td>
+                                        <form asp-action="UpdateApplicantStatus" asp-controller="Employer" method="post" class="d-inline-block">
+                                            <input type="hidden" name="id" value="@applicant.Id" />
+                                            <input type="hidden" name="jobId" value="@ViewBag.JobId" />
+                                            <select name="status" class="form-select" onchange="this.form.submit()">
+                                                @if (applicant.Status == "Pending")
+                                                {
+                                                    <option value="Pending" selected>Pending</option>
+                                                }
+                                                else
+                                                {
+                                                    <option value="Pending">Pending</option>
+                                                }
+                                                @if (applicant.Status == "Reviewed")
+                                                {
+                                                    <option value="Reviewed" selected>Reviewed</option>
+                                                }
+                                                else
+                                                {
+                                                    <option value="Reviewed">Reviewed</option>
+                                                }
+                                                @if (applicant.Status == "Accepted")
+                                                {
+                                                    <option value="Accepted" selected>Accepted</option>
+                                                }
+                                                else
+                                                {
+                                                    <option value="Accepted">Accepted</option>
+                                                }
+                                                @if (applicant.Status == "Rejected")
+                                                {
+                                                    <option value="Rejected" selected>Rejected</option>
+                                                }
+                                                else
+                                                {
+                                                    <option value="Rejected">Rejected</option>
+                                                }
+                                            </select>
+
+                                        </form>
+                                    </td>
+
+                                    <td>
+                                        <form asp-action="ApplicantUserDetails" asp-controller="Employer" method="get" class="d-inline-block" asp-route-id="@applicant.Id">
+                                            <button type="submit" class="btn modern-create-btn">
+                                                <i class="fas fa-eye me-2"></i>View Details
+                                            </button>
+                                        </form>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            }
+            else
+            {
+                <div class="empty-state">
+                    <i class="fas fa-inbox"></i>
+                    <h3>No Applicants Yet</h3>
+                    <p>There are currently no applicants for this job position.</p>
+                </div>
+            }
+        </div>
+    </div>
+
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">

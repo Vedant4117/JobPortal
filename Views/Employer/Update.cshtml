@@ -1,0 +1,512 @@
+﻿@model Jobs
+@{
+    ViewBag.Title = "Update the Job";
+}
+
+<style>
+    .job-update-bg {
+        background: linear-gradient(135deg, #ff6b6b 0%, #4ecdc4 50%, #45b7d1 100%);
+        min-height: 100vh;
+        position: relative;
+        overflow: hidden;
+    }
+
+        .job-update-bg::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><defs><radialGradient id="b" cx="50%" cy="50%"><stop offset="0%" stop-color="rgba(255,255,255,0.15)"/><stop offset="100%" stop-color="rgba(255,255,255,0)"/></radialGradient></defs><circle cx="150" cy="150" r="80" fill="url(%23b)"/><circle cx="850" cy="250" r="120" fill="url(%23b)"/><circle cx="250" cy="750" r="100" fill="url(%23b)"/><circle cx="750" cy="850" r="90" fill="url(%23b)"/><circle cx="500" cy="400" r="60" fill="url(%23b)"/></svg>');
+            opacity: 0.4;
+        }
+
+    .form-container {
+        position: relative;
+        z-index: 2;
+    }
+
+    .job-update-card {
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(25px);
+        border: 1px solid rgba(255, 255, 255, 0.4);
+        box-shadow: 0 35px 70px rgba(0, 0, 0, 0.2);
+        transition: all 0.4s ease;
+        width: 500px;
+        border-radius: 2.5rem;
+        overflow: hidden;
+        position: relative;
+    }
+
+        .job-update-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 6px;
+            background: linear-gradient(90deg, #ff6b6b, #4ecdc4, #45b7d1, #ff6b6b);
+            background-size: 300% 100%;
+            animation: rainbow-flow 4s infinite;
+        }
+
+    @@keyframes rainbow-flow {
+        0%
+
+    {
+        background-position: 0% 0%;
+    }
+
+    100% {
+        background-position: 300% 0%;
+    }
+
+    }
+
+    .job-update-card:hover {
+        transform: translateY(-12px) scale(1.03);
+        box-shadow: 0 45px 90px rgba(255, 107, 107, 0.3);
+        background: rgba(255, 255, 255, 1);
+    }
+
+    .form-title {
+        background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        font-weight: 800;
+        text-align: center;
+        margin-bottom: 2rem;
+        font-size: 2.5rem;
+        position: relative;
+        padding-top: 1rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+
+        .form-title::after {
+            content: '';
+            position: absolute;
+            bottom: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1);
+            border-radius: 2px;
+            animation: pulse-width 2s infinite;
+        }
+
+    @@keyframes pulse-width {
+        0%, 100%
+
+    {
+        width: 100px;
+    }
+
+    50% {
+        width: 150px;
+    }
+
+    }
+
+    .form-title::before {
+        content: '✏️';
+        position: absolute;
+        top: -15px;
+        left: 50%;
+        transform: translateX(-50%);
+        font-size: 2.2rem;
+        animation: edit-bounce 3s infinite;
+    }
+
+    @@keyframes edit-bounce {
+        0%, 20%, 50%, 80%, 100%
+
+    {
+        transform: translateX(-50%) translateY(0) rotate(0deg);
+    }
+
+    40% {
+        transform: translateX(-50%) translateY(-8px) rotate(-10deg);
+    }
+
+    60% {
+        transform: translateX(-50%) translateY(-4px) rotate(10deg);
+    }
+
+    }
+
+    .form-group {
+        position: relative;
+        margin-bottom: 2rem;
+    }
+
+    .form-label {
+        color: #2c3e50;
+        font-weight: 700;
+        margin-bottom: 0.75rem;
+        font-size: 1.05rem;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+
+    .form-control {
+        border: 2px solid #e9ecef;
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        background: rgba(255, 255, 255, 0.9);
+        font-size: 1rem;
+        padding: 1.1rem 1.5rem;
+        position: relative;
+        font-weight: 500;
+    }
+
+        .form-control:focus {
+            border-color: #ff6b6b;
+            box-shadow: 0 0 30px rgba(255, 107, 107, 0.4);
+            background: rgba(255, 255, 255, 1);
+            transform: translateY(-4px);
+            outline: none;
+        }
+
+    .input-wrapper {
+        position: relative;
+    }
+
+    .input-icon {
+        position: absolute;
+        right: 1.5rem;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 1.3rem;
+        pointer-events: none;
+        transition: all 0.3s ease;
+        background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+
+    .form-control:focus + .input-icon {
+        transform: translateY(-50%) scale(1.15) rotate(10deg);
+    }
+
+    textarea.form-control {
+        min-height: 130px;
+        resize: vertical;
+        border-radius: 1.2rem !important;
+    }
+
+    .status-dropdown {
+        appearance: none;
+        background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="%23ff6b6b" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>');
+        background-repeat: no-repeat;
+        background-position: right 1rem center;
+        background-size: 20px;
+        padding-right: 3rem;
+    }
+
+        .status-dropdown:focus {
+            border-color: #4ecdc4;
+            box-shadow: 0 0 25px rgba(78, 205, 196, 0.4);
+        }
+
+    .btn-update {
+        background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1);
+        background-size: 300% 300%;
+        border: none;
+        color: white;
+        padding: 1.2rem 2rem;
+        font-weight: 800;
+        font-size: 1.25rem;
+        transition: all 0.4s ease;
+        position: relative;
+        overflow: hidden;
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+        margin-top: 1.5rem;
+        animation: gradient-shift 3s infinite;
+    }
+
+    @@keyframes gradient-shift {
+        0%
+
+    {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+
+    }
+
+    .btn-update::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+        transition: left 0.6s;
+    }
+
+    .btn-update:hover::before {
+        left: 100%;
+    }
+
+    .btn-update:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 25px 50px rgba(255, 107, 107, 0.5);
+        color: white;
+        animation-duration: 1s;
+    }
+
+    .btn-update:active {
+        transform: translateY(-3px) scale(0.98);
+        box-shadow: 0 15px 30px rgba(255, 107, 107, 0.4);
+    }
+
+    .validation-summary {
+        background: linear-gradient(45deg, rgba(220, 53, 69, 0.15), rgba(248, 215, 218, 0.4));
+        border: 2px solid rgba(220, 53, 69, 0.4);
+        border-radius: 1.5rem;
+        padding: 1.25rem 1.75rem;
+        margin-bottom: 2rem;
+        animation: alert-pulse 0.8s ease-in-out;
+    }
+
+    .text-danger {
+        color: #e74c3c !important;
+        font-size: 0.9rem;
+        font-weight: 600;
+        margin-top: 0.5rem;
+        animation: error-slide 0.4s ease;
+    }
+
+    @@keyframes error-slide {
+        from
+
+    {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+
+    }
+
+    @@keyframes alert-pulse {
+        0%, 100%
+
+    {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.02);
+    }
+
+    }
+
+    .field-title::before {
+        content: '📝';
+        margin-right: 0.5rem;
+        font-size: 1.2rem;
+    }
+
+    .field-description::before {
+        content: '📄';
+        margin-right: 0.5rem;
+        font-size: 1.2rem;
+    }
+
+    .field-location::before {
+        content: '🌍';
+        margin-right: 0.5rem;
+        font-size: 1.2rem;
+    }
+
+    .field-salary::before {
+        content: '💵';
+        margin-right: 0.5rem;
+        font-size: 1.2rem;
+    }
+
+    .field-status::before {
+        content: '📊';
+        margin-right: 0.5rem;
+        font-size: 1.2rem;
+    }
+
+    .floating-shapes {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        z-index: 1;
+    }
+
+    .shape {
+        position: absolute;
+        border-radius: 50%;
+        animation: float-rotate 8s infinite ease-in-out;
+    }
+
+        .shape:nth-child(1) {
+            width: 20px;
+            height: 20px;
+            background: rgba(255, 107, 107, 0.2);
+            left: 15%;
+            animation-delay: 0s;
+        }
+
+        .shape:nth-child(2) {
+            width: 25px;
+            height: 25px;
+            background: rgba(78, 205, 196, 0.2);
+            left: 75%;
+            animation-delay: 1.5s;
+        }
+
+        .shape:nth-child(3) {
+            width: 15px;
+            height: 15px;
+            background: rgba(69, 183, 209, 0.2);
+            left: 45%;
+            animation-delay: 3s;
+        }
+
+        .shape:nth-child(4) {
+            width: 30px;
+            height: 30px;
+            background: rgba(255, 107, 107, 0.15);
+            left: 85%;
+            animation-delay: 4.5s;
+        }
+
+    @@keyframes float-rotate {
+        0%, 100%
+
+    {
+        transform: translateY(100vh) rotate(0deg);
+        opacity: 0;
+    }
+
+    10%, 90% {
+        opacity: 1;
+    }
+
+    50% {
+        transform: translateY(-20px) rotate(360deg);
+    }
+
+    }
+
+    @@media (max-width: 768px) {
+        .job-update-card
+
+    {
+        width: 90%;
+        margin: 1rem;
+    }
+
+    .form-title {
+        font-size: 2rem;
+    }
+
+    .form-control {
+        padding: 1rem 1.25rem;
+    }
+
+    .btn-update {
+        font-size: 1.1rem;
+        padding: 1rem 1.5rem;
+    }
+
+    }
+</style>
+
+<div class="job-update-bg d-flex justify-content-center align-items-center min-vh-100">
+    <div class="floating-shapes">
+        <div class="shape"></div>
+        <div class="shape"></div>
+        <div class="shape"></div>
+        <div class="shape"></div>
+    </div>
+
+    <div class="form-container">
+        <div class="card job-update-card shadow-lg p-5">
+            <h2 class="form-title">Update Job</h2>
+
+            <form asp-action="Update" method="post" class="mt-4">
+                @Html.ValidationSummary(true, "", new { @class = "text-danger validation-summary" })
+
+                <div class="form-group mb-3">
+                    @Html.LabelFor(model => model.Title, new { @class = "form-label fw-semibold field-title" })
+                    <div class="input-wrapper">
+                        @Html.TextBoxFor(model => model.Title, new { @class = "form-control rounded-pill", placeholder = "Enter job title..." })
+                        <i class="fas fa-briefcase input-icon"></i>
+                    </div>
+                    @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="form-group mb-3">
+                    @Html.LabelFor(model => model.Description, new { @class = "form-label fw-semibold field-description" })
+                    <div class="input-wrapper">
+                        @Html.TextAreaFor(model => model.Description, new { @class = "form-control", placeholder = "Update job description..." })
+                        <i class="fas fa-align-left input-icon"></i>
+                    </div>
+                    @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="form-group mb-3">
+                    @Html.LabelFor(model => model.Location, new { @class = "form-label fw-semibold field-location" })
+                    <div class="input-wrapper">
+                        @Html.TextBoxFor(model => model.Location, new { @class = "form-control rounded-pill", placeholder = "Enter location..." })
+                        <i class="fas fa-map-marker-alt input-icon"></i>
+                    </div>
+                    @Html.ValidationMessageFor(model => model.Location, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="form-group mb-3">
+                    @Html.LabelFor(model => model.Salary, new { @class = "form-label fw-semibold field-salary" })
+                    <div class="input-wrapper">
+                        @Html.TextBoxFor(model => model.Salary, new { @class = "form-control rounded-pill", placeholder = "Enter salary..." })
+                        <i class="fas fa-indian-rupee-sign input-icon"></i>
+                    </div>
+                    @Html.ValidationMessageFor(model => model.Salary, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="form-group mb-3">
+                    @Html.LabelFor(model => model.Status, new { @class = "form-label fw-semibold field-status" })
+                    <div class="input-wrapper">
+                        @Html.DropDownListFor(model => model.Status, new SelectList(new[] { "Open", "Close" }), "Select Status", new { @class = "form-control rounded-pill status-dropdown" })
+                    </div>
+                    @Html.ValidationMessageFor(model => model.Status, "", new { @class = "text-danger" })
+                </div>
+
+                <button type="submit" class="btn btn-update w-100 rounded-pill">
+                    <i class="fas fa-sync-alt me-2"></i>Update Job
+                </button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- Font Awesome for icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">

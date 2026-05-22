@@ -1,0 +1,366 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - JobPortal</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/JobPortal.styles.css" asp-append-version="true" />
+
+    <style>
+        :root {
+            --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --secondary-gradient: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            --glass-bg: rgba(255, 255, 255, 0.95);
+            --glass-border: rgba(255, 255, 255, 0.3);
+            --shadow-color: rgba(102, 126, 234, 0.15);
+        }
+
+        body {
+            background: linear-gradient(135deg, #f8faff 0%, #e8f2ff 50%, #f0f8ff 100%);
+            min-height: 100vh;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .modern-navbar {
+            background: var(--glass-bg) !important;
+            backdrop-filter: blur(20px);
+            border: none !important;
+            border-bottom: 1px solid var(--glass-border) !important;
+            box-shadow: 0 8px 32px var(--shadow-color) !important;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1020;
+            transition: all 0.3s ease;
+        }
+
+        .modern-navbar-brand {
+            background: var(--primary-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 800 !important;
+            font-size: 1.8rem !important;
+            text-decoration: none !important;
+            letter-spacing: -0.5px;
+            position: relative;
+        }
+
+            .modern-navbar-brand::after {
+                content: '';
+                position: absolute;
+                bottom: -5px;
+                left: 0;
+                width: 0;
+                height: 3px;
+                background: var(--primary-gradient);
+                border-radius: 2px;
+                transition: width 0.3s ease;
+            }
+
+            .modern-navbar-brand:hover::after {
+                width: 100%;
+            }
+
+        .modern-nav-link {
+            color: #4a5568 !important;
+            font-weight: 600 !important;
+            font-size: 1rem !important;
+            padding: 0.75rem 1.25rem !important;
+            border-radius: 12px !important;
+            position: relative;
+            transition: all 0.3s ease !important;
+            margin: 0 0.25rem;
+        }
+
+            .modern-nav-link:hover {
+                color: #667eea !important;
+                background: rgba(102, 126, 234, 0.1) !important;
+                transform: translateY(-2px);
+            }
+
+            .modern-nav-link::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background: var(--primary-gradient);
+                border-radius: 12px;
+                opacity: 0;
+                transition: opacity 0.3s ease;
+                z-index: -1;
+            }
+
+            .modern-nav-link:hover::before {
+                opacity: 0.1;
+            }
+
+        .modern-dropdown-toggle {
+            background: var(--primary-gradient) !important;
+            color: white !important;
+            border: none !important;
+            border-radius: 25px !important;
+            padding: 0.6rem 1.5rem !important;
+            font-weight: 600 !important;
+            font-size: 0.95rem !important;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+            transition: all 0.3s ease !important;
+            text-transform: capitalize;
+        }
+
+            .modern-dropdown-toggle:hover {
+                transform: translateY(-2px) !important;
+                box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4) !important;
+            }
+
+            .modern-dropdown-toggle::after {
+                margin-left: 0.5rem;
+            }
+
+        .modern-dropdown-menu {
+            background: var(--glass-bg) !important;
+            backdrop-filter: blur(20px) !important;
+            border: 1px solid var(--glass-border) !important;
+            border-radius: 16px !important;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1) !important;
+            padding: 1rem 0 !important;
+            margin-top: 0.5rem !important;
+            min-width: 200px !important;
+        }
+
+        .modern-dropdown-item {
+            padding: 0.75rem 1.5rem !important;
+            font-weight: 500 !important;
+            color: #4a5568 !important;
+            transition: all 0.2s ease !important;
+            border-radius: 0 !important;
+        }
+
+            .modern-dropdown-item:hover {
+                background: rgba(102, 126, 234, 0.1) !important;
+                color: #667eea !important;
+                padding-left: 2rem !important;
+            }
+
+            .modern-dropdown-item i {
+                width: 16px;
+                margin-right: 0.75rem;
+            }
+
+        .modern-container {
+            padding-top: 2rem;
+            padding-bottom: 2rem;
+        }
+
+        .modern-main {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            border-radius: 24px;
+            padding: 2.5rem;
+            margin: 1rem 0;
+            box-shadow: 0 20px 40px rgba(102, 126, 234, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            min-height: 60vh;
+            position: relative;
+        }
+
+            .modern-main::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                height: 1px;
+                background: linear-gradient(90deg, transparent, rgba(102, 126, 234, 0.3), transparent);
+            }
+
+        .modern-footer {
+            background: var(--glass-bg) !important;
+            backdrop-filter: blur(20px);
+            border-top: 1px solid var(--glass-border) !important;
+            padding: 2rem 0 !important;
+            margin-top: 3rem;
+            color: #6b7280 !important;
+        }
+
+            .modern-footer a {
+                color: #667eea !important;
+                text-decoration: none !important;
+                font-weight: 600;
+                transition: all 0.3s ease;
+            }
+
+                .modern-footer a:hover {
+                    color: #764ba2 !important;
+                    text-decoration: underline !important;
+                }
+
+        .modern-toggler {
+            border: none !important;
+            padding: 0.5rem !important;
+            border-radius: 8px !important;
+            background: rgba(102, 126, 234, 0.1) !important;
+        }
+
+            .modern-toggler:focus {
+                box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.2) !important;
+            }
+
+        .modern-toggler-icon {
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28102, 126, 234, 1%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
+        }
+
+        /* Responsive Enhancements */
+        @@media (max-width: 768px) {
+            .modern-navbar {
+                padding: 0.75rem 0;
+            }
+
+            .modern-navbar-brand {
+                font-size: 1.5rem !important;
+            }
+
+            .modern-main {
+                padding: 1.5rem;
+                margin: 0.5rem 0;
+                border-radius: 16px;
+            }
+
+            .modern-container {
+                padding-top: 1rem;
+                padding-bottom: 1rem;
+            }
+        }
+
+        /* Animation for page transitions */
+        .modern-main {
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        @@keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg modern-navbar">
+            <div class="container-fluid px-4">
+                <a class="navbar-brand modern-navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">
+                    <i class="fas fa-briefcase me-2"></i>JobPortal
+                </a>
+                <button class="navbar-toggler modern-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+                        aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon modern-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        @if (User.IsInRole("Applicant"))
+                        {
+                            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                                <li class="nav-item">
+                                    <a class="nav-link modern-nav-link" asp-controller="JobSeeker" asp-action="Applicant_Index">
+                                        <i class="fas fa-search me-2"></i>Jobs
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link modern-nav-link" asp-controller="JobSeeker" asp-action="Applications">
+                                        <i class="fas fa-file-alt me-2"></i>Applications
+                                    </a>
+                                </li>
+                            </ul>
+                        }
+                        @if (User.IsInRole("Admin"))
+                        {
+                            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                                <li class="nav-item">
+                                    <a class="nav-link modern-nav-link" asp-controller="Admin" asp-action="Index">
+                                        <i class="fas fa-search me-2"></i>Users
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link modern-nav-link" asp-controller="Employer" asp-action="Recruiter_Index">
+                                        <i class="fas fa-file-alt me-2"></i>Jobs
+                                    </a>
+                                </li>
+                            </ul>
+                        }
+                        <ul class="navbar-nav ms-auto">
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle modern-dropdown-toggle" href="#" id="userDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <i class="fas fa-user me-2"></i> @User.Identity.Name
+                                </a>
+                                <ul class="dropdown-menu modern-dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
+                                    <li>
+                                        @if (User.IsInRole("Applicant"))
+                                        {
+                                            <a class="dropdown-item modern-dropdown-item" asp-controller="Account" asp-action="EditProfileApplicant" asp-route-id="@User.FindFirst(System.Security.Claims.ClaimTypes.NameIdentifier)?.Value">
+                                                <i class="fas fa-edit"></i>Edit Profile
+                                            </a>
+                                        }
+                                        else if (User.IsInRole("Recruiter"))
+                                        {
+                                            <a class="dropdown-item modern-dropdown-item" asp-controller="Account" asp-action="EditProfileRecruiter" asp-route-id="@User.FindFirst(System.Security.Claims.ClaimTypes.NameIdentifier)?.Value">
+                                                <i class="fas fa-edit"></i>Edit Profile
+                                            </a>
+                                        }
+                                    </li>
+                                    <li><hr class="dropdown-divider" style="opacity: 0.2;"></li>
+                                    <li>
+                                        <a class="dropdown-item modern-dropdown-item" asp-controller="Account" asp-action="Logout">
+                                            <i class="fas fa-sign-out-alt"></i>Logout
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                    }
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container-fluid modern-container">
+        <div class="container">
+            <main role="main" class="modern-main">
+                @RenderBody()
+            </main>
+        </div>
+    </div>
+    <footer class="modern-footer text-center">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <p class="mb-2">
+                        <i class="fas fa-copyright me-2"></i>&copy; 2025 - JobPortal -
+                        <a asp-controller="Home" asp-action="Privacy">
+                            <i class="fas fa-shield-alt me-1"></i>Privacy Policy
+                        </a>
+                    </p>
+                    <p class="text-muted small mb-0">
+                        <i class="fas fa-heart text-danger me-1"></i>Built with passion for connecting talent with opportunity
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html> 
