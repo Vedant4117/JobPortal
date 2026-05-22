@@ -23,7 +23,7 @@ JobPortal is a web-based recruitment platform built using ASP.NET MVC and Oracle
 1. Clone the repository:
 
 ```bash
-git clone <repository-link>
+git clone https://github.com/Vedant4117/JobPortal.git
 ```
 
 2. Navigate to the project directory:
@@ -65,5 +65,4 @@ JobPortal/
 - Enhanced dashboard analytics
 
 ## Author
-
-Developed by Vedant Chaudhari
+Vedant Chaudhari
